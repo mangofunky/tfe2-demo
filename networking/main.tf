@@ -19,7 +19,7 @@ resource "aws_vpc" "tfe_vpc" {
 resource "aws_subnet" "tfe_public_subnet" {
   count                   = var.public_sn_count
   vpc_id                  = aws_vpc.tfe_vpc.id
-  cidr_block              = var.public_cidrs[count.index]
+  cidr_block              = var.public_cidr[count.index]
   map_public_ip_on_launch = true
   availability_zone       = data.aws_availability_zones.available.names[count.index]
 
@@ -31,7 +31,7 @@ resource "aws_subnet" "tfe_public_subnet" {
 resource "aws_subnet" "tfe_private_subnet" {
   count                   = var.private_sn_count
   vpc_id                  = aws_vpc.tfe_vpc.id
-  cidr_block              = var.private_cidrs[count.index]
+  cidr_block              = var.private_cidr[count.index]
   map_public_ip_on_launch = false
   availability_zone       = data.aws_availability_zones.available.names[count.index]
 
