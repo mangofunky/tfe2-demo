@@ -53,7 +53,7 @@ resource "aws_security_group" "deny-access-ssh" {
     protocol         = "tcp"
     #cidr_blocks      = ["0.0.0.0/0"]
     cidr_blocks      = [aws_vpc.tfe_vpc.cidr_block]
-    ipv6_cidr_blocks = [aws_vpc.tfe_vpc.ipv6_cidr_block]
+    #ipv6_cidr_blocks = [aws_vpc.tfe_vpc.ipv6_cidr_block]
   }
 
   ingress {
@@ -63,7 +63,7 @@ resource "aws_security_group" "deny-access-ssh" {
     protocol         = "tcp"
     #cidr_blocks      = ["0.0.0.0/0"]
     cidr_blocks      = [aws_vpc.tfe_vpc.cidr_block]
-    ipv6_cidr_blocks = [aws_vpc.tfe_vpc.ipv6_cidr_block]
+    #ipv6_cidr_blocks = [aws_vpc.tfe_vpc.ipv6_cidr_block]
   }
 
   egress {
