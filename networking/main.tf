@@ -60,9 +60,9 @@ resource "aws_security_group" "deny-access-ssh" {
     from_port        = 3389
     to_port          = 3389
     protocol         = "tcp"
-    #cidr_blocks      = ["0.0.0.0/0"]
-    cidr_blocks      = [aws_vpc.tfe_vpc.cidr_block]
-    ipv6_cidr_blocks = [aws_vpc.tfe_vpc.ipv6_cidr_block]
+    cidr_blocks      = ["0.0.0.0/0"]
+    #cidr_blocks      = [aws_vpc.tfe_vpc.cidr_block]
+    #ipv6_cidr_blocks = [aws_vpc.tfe_vpc.ipv6_cidr_block]
   }
 
   egress {
