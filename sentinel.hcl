@@ -99,7 +99,7 @@ module "aws-functions" {
 #   enforcement_level = "advisory"
 # }
 
-policy "restrict-ingress-sg-rule-cidr-blocks" {
+/* policy "restrict-ingress-sg-rule-cidr-blocks" {
   source = "./sentinel/aws/restrict-ingress-sg-rule-cidr-blocks.sentinel"
   enforcement_level = "hard-mandatory"
 }
@@ -112,7 +112,21 @@ policy "restrict-ingress-sg-rule-rdp" {
 policy "restrict-ingress-sg-rule-ssh" {
   source = "./sentinel/aws/restrict-ingress-sg-rule-ssh.sentinel"
   enforcement_level = "hard-mandatory"
+} */
+
+policy "aws-cis-4.1-networking-deny-public-ssh-acl-rules" {
+  source = "https://raw.githubusercontent.com/hashicorp/terraform-foundational-policies-library/master/cis/aws/networking/aws-cis-4.1-networking-deny-public-ssh-acl-rules/aws-cis-4.1-networking-deny-public-ssh-acl-rules.sentinel"
+  enforcement_level = "advisory"
 }
+policy "aws-cis-4.2-networking-deny-public-rdp-acl-rules" {
+  source = "https://raw.githubusercontent.com/hashicorp/terraform-foundational-policies-library/master/cis/aws/networking/aws-cis-4.2-networking-deny-public-rdp-acl-rules/aws-cis-4.2-networking-deny-public-rdp-acl-rules.sentinel"
+  enforcement_level = "advisory"
+}
+policy "aws-cis-4.3-networking-restrict-all-vpc-traffic-acl-rules" {
+  source = "https://raw.githubusercontent.com/hashicorp/terraform-foundational-policies-library/master/cis/aws/networking/aws-cis-4.3-networking-restrict-all-vpc-traffic-acl-rules/aws-cis-4.3-networking-restrict-all-vpc-traffic-acl-rules.sentinel"
+  enforcement_level = "advisory"
+}
+
 
 # policy "restrict-launch-configuration-instance-type" {
 #   source = "./restrict-launch-configuration-instance-type.sentinel"
