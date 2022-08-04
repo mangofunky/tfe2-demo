@@ -8,6 +8,7 @@ resource "random_integer" "random" {
 
 resource "aws_vpc" "tfe_vpc" {
   cidr_block           = var.vpc_cidr
+  assign_generated_ipv6_cidr_block = true
   ipv6_cidr_block = var.ipv6_cidr_block
   enable_dns_hostnames = true
   enable_dns_support   = true
