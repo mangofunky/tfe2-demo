@@ -3,6 +3,10 @@ variable "vpc_cidr" {
     type = string
 }
 
+variable "ipv6_cidr_blocks" {
+    type = string
+}
+
 variable "public_cidr" {
     type = list
 }

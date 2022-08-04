@@ -8,6 +8,7 @@ resource "random_integer" "random" {
 
 resource "aws_vpc" "tfe_vpc" {
   cidr_block           = var.vpc_cidr
+  ipv6_cidr_block      = var.ipv6_cidr_blocks
   enable_dns_hostnames = true
   enable_dns_support   = true
 
@@ -53,7 +54,7 @@ resource "aws_security_group" "deny-access-ssh" {
     protocol         = "tcp"
     #cidr_blocks      = ["0.0.0.0/0"]
     cidr_blocks      = [aws_vpc.tfe_vpc.cidr_block]
-    #ipv6_cidr_blocks = [aws_vpc.tfe_vpc.ipv6_cidr_block]
+    ipv6_cidr_blocks = [aws_vpc.tfe_vpc.ipv6_cidr_block]
   }
 
   ingress {
@@ -63,7 +64,7 @@ resource "aws_security_group" "deny-access-ssh" {
     protocol         = "tcp"
     #cidr_blocks      = ["0.0.0.0/0"]
     cidr_blocks      = [aws_vpc.tfe_vpc.cidr_block]
-    #ipv6_cidr_blocks = [aws_vpc.tfe_vpc.ipv6_cidr_block]
+    ipv6_cidr_blocks = [aws_vpc.tfe_vpc.ipv6_cidr_block]
   }
 
   egress {
