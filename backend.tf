@@ -1,10 +1,10 @@
 terraform {
   backend "remote" {
     hostname     = "app.terraform.io"
-    organization = "mangofunky-terraform"
+    organization = "mangofunky-tf3
 
     workspaces {
-      name = "tfe-poc-demo"
+      name = "tfe2-demo"
     }
   }
 }
